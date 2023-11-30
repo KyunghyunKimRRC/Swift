@@ -52,8 +52,6 @@ class CartsController < ApplicationController
             session[:shopping_cart][id] = quantity
         end
         
-        product = Product.find(id)
-        flash[:notice] = "*#{product.name} quantity updated"
         redirect_to carts_path
     end
 
