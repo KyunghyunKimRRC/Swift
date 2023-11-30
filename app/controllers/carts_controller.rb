@@ -41,6 +41,22 @@ class CartsController < ApplicationController
         redirect_to session[:return_to]
     end
 
+    # UPDATE
+    def update
+        id = params[:id].to_i
+        quantity = params[:quantity].to_i
+
+        if session[:shopping_cart].key?(id)
+            session[:shopping_cart][id] += quantity
+        else
+            session[:shopping_cart][id] = quantity
+        end
+        
+        product = Product.find(id)
+        flash[:notice] = "*#{product.name} quantity updated"
+        redirect_to carts_path
+    end
+
     # DELETE /carts/:id
     def destroy
         id = params[:id]

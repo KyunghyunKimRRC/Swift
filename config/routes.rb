@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/products/search', to: 'products#search', as: 'products_search'
   resources :products
   resources :categories
-  resources :carts, only: %i[index create destroy]
+  resources :carts, only: %i[index create update destroy]
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
