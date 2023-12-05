@@ -14,8 +14,32 @@
                     <td>
                         <span class="fw-bold"><%= p.name %></span>
                         <div class="pt-2 pb-3">
-                            <% product_id = p.id.to_s %>
-                            Quantity: <%= session[:shopping_cart][product_id] %>
+                            <%= form_with url: cart_path(id: p.id), method: :patch do %>
+                                <div class="row d-flex align-items-center pb-3">
+                                    <div class="col-1">
+                                        Qty:
+                                    </div>
+                                <div class="col-1" size="100">
+                                    <% selected_quanity = session[:shopping_cart][p.id.to_s] %>
+                                    <select name="quantity" class="form-select" aria-label="quantity" style="width: 58px;">
+                                    <% if selected_quanity == 1 %>
+                                        <option selected value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    <% elsif selected_quanity == 2 %>
+                                        <option value="1">1</option>
+                                        <option selected value="2">2</option>
+                                        <option value="3">3</option>
+                                    <% else %>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option selected value="3">3</option>
+                                    <% end %>
+                                    </select>
+                                </div>
+                                </div>
+                                <%= button_tag 'Edit', class: "btn btn-outline-primary" %>
+                            <% end %>
                         </div>
                         <div>
                             <%= button_to cart_path(id: p.id), class:"btn btn-outline-primary", method: :delete do %>

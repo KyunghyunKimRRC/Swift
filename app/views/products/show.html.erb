@@ -8,7 +8,7 @@
     </nav>
     <div class="d-flex justify-content-center border rounded my-4 pt-4 pb-5 px-2">
         <div class="me-5">
-            <%# <%= image_tag @product.image, size: "300" %> %>
+            <%# <%= image_tag @product.image, size: "300" %>
             <% if @product.img.attached?%>
             <%= link_to image_tag(@product.img, :class => "card-img-top img-fixed-height bg-light"), @product  %>
             <% elsif @product.image.present? %>
