@@ -2,9 +2,9 @@
     <% @products.each do |p| %>
     <div class="card" style="width: 15rem; margin: 10px;">
         <% if p.img.attached?%>
-            <%= link_to image_tag(p.img, :class => "card-img-top img-fixed-height bg-light"), p  %>
+            <%= link_to image_tag(p.img, :class => "card-img-top img-fixed-height bg-light", alt: "#{p.name}"), p  %>
         <% elsif p.image.present? %>
-            <%= link_to image_tag(p.image, :class => "card-img-top img-fixed-height bg-light"), p %>
+            <%= link_to image_tag(p.image, :class => "card-img-top img-fixed-height bg-light", alt: "#{p.name}"), p %>
         <% end %>
         <div class="card-body">
             <%= link_to p.name, p, class: "h6 card-title text-decoration-none product" %>
