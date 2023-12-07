@@ -24,8 +24,8 @@
                             </ul>
                         </td>
                         <td><small>Completed</small></td>
-                        <td><small>$<%= o.tax %></small></td>
-                        <td><small>$<%= o.total %></small></td>
+                         <td><small>$<%= number_with_precision(o.tax, precision: 2) %></small></td>
+                        <td><small>$<%= number_with_precision(o.total, precision: 2) %></small></td>
                     </tr>
                 <% end %>
             </tbody>
